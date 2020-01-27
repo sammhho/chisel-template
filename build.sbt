@@ -42,14 +42,14 @@ resolvers ++= Seq(
 addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full)
 
 // Provide a managed dependency on X if -DXVersion="" is supplied on the command line.
-val defaultVersions = Map(
+val defaultVersions = Seq(
   "chisel3" -> "3.2-SNAPSHOT",
   "chisel-iotesters" -> "1.3-SNAPSHOT",
-  "chisel-testers2"  -> "0.2-SNAPSHOT"
+  "chiseltest"  -> "0.2-SNAPSHOT"
   )
 
-libraryDependencies ++= Seq("chisel3", "chisel-iotesters", "chisel-testers2").map {
-  dep: String => "edu.berkeley.cs" %% dep % sys.props.getOrElse(dep + "Version", defaultVersions(dep)) }
+libraryDependencies ++= defaultVersions.map { case (dep, ver) =>
+  "edu.berkeley.cs" %% dep % sys.props.getOrElse(dep + "Version", ver) }
 
 scalacOptions ++= scalacOptionsVersion(scalaVersion.value)
 
