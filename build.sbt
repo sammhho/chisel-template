@@ -26,7 +26,7 @@ def javacOptionsVersion(scalaVersion: String): Seq[String] = {
   }
 }
 
-name := "chisel-module-template"
+name := "dsp-double-clock"
 
 version := "3.2.0"
 
@@ -51,3 +51,9 @@ libraryDependencies ++= Seq("chisel3","chisel-iotesters").map {
 scalacOptions ++= scalacOptionsVersion(scalaVersion.value)
 
 javacOptions ++= javacOptionsVersion(scalaVersion.value)
+
+//lazy val child1 = RootProject(uri("https://github.com/ucb-bar/asyncqueue-lite.git"))
+//lazy val child1 = ProjectRef(uri("https://github.com/edwardcwang/chisel-multiclock-demo.git"), "asyncqueue")
+//lazy val child2 = ProjectRef(uri("https://github.com/edwardcwang/chisel-multiclock-demo.git"), "myself")
+//lazy val child2 = RootProject(uri("../chisel-multiclock-demo"))
+//lazy val root = (project in file(".")).dependsOn(child2)
