@@ -28,7 +28,7 @@ object ClockDivider {
       // the new clock.
       val max: Int = divide_by / 2
       // log2Ceil(n) = the # of bits needed to represent n unique things
-      val counter = RegInit(0.U(log2Ceil(max).W))
+      val counter = RegInit(0.U(log2Ceil(max).max(1).W))
       counter := counter + 1.U // The counter always increments.
 
       // Every second cycle, toggle the new divided down clock.

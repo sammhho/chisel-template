@@ -16,10 +16,10 @@ class DSPX2UnitTester(c: DSPX2Wrapper) extends PeekPokeTester(c) {
                 poke(c.io.b1, j*3)
                 poke(c.io.c1, k*5)
                 step(4)
-                val expected_rlt0 = i * j + k
-                val expected_rlt1 = (i*2) * (j*3) + (k*5)
-                expect(c.io.rlt0, expected_rlt0)
-                expect(c.io.rlt1, expected_rlt1)
+                val expected_q0 = i * j + k
+                val expected_q1 = (i*2) * (j*3) + (k*5)
+                expect(c.io.q0, expected_q0)
+                expect(c.io.q1, expected_q1)
             }
         }
     }
